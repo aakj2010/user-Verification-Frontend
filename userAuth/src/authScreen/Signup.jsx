@@ -1,5 +1,7 @@
-import { useState } from "react"
-import { NavLink } from 'react-router-dom'
+import { useState } from "react";
+import { NavLink } from 'react-router-dom';
+import axios from 'axios';
+import API_URL from "../config/global";
 const Signup = () => {
     const [formData, serFormData] = useState({
         name: '',
@@ -12,9 +14,19 @@ const Signup = () => {
             ...formData, [name]: value,
         })
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData)
+        // console.log(formData)
+        try {
+            const response = await axios.post(`${API_URL}/signup/verify`, formData)
+            if (response.data === true) {
+                alert("Registration link is sent to your Email Id")
+            } else if (response.data === false) {
+                alert("User Already Exists")
+            }
+        } catch (error) {
+            console.error("Error during Registration : ", error)
+        }
     }
     return (
         <section className="rounded-lg p-2 bg-white">

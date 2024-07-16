@@ -15,8 +15,6 @@ function App() {
           <Route path='/home' element={<Home />} />
         </Routes>
       </BrowserRouter>
-
-      {/* <Login /> */}
     </>
   )
 }
