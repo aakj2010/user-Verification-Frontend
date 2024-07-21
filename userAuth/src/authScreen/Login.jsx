@@ -21,9 +21,9 @@ const Login = () => {
       const response = await axios.post(`${API_URL}/login`, formData)
       if (response.data === "Invalid Username or Password") {
         alert("Invalid Username or Password")
-      } else if(response.data === "Server Busy") {
+      } else if (response.data === "Server Busy") {
         alert("Verify your Email ID")
-      } else if(response?.status) {
+      } else if (response?.status) {
         localStorage.setItem("UserInfo", JSON.stringify(response.data))
         navigate('/home')
       }
@@ -80,8 +80,9 @@ const Login = () => {
               </div>
               <p className="mt-2 text-base text-gray-600">
                 Don&#39;t have an account?
-                <NavLink className="text-green-700 underline" to='/signup'>SignUp</NavLink>
+                <NavLink className="text-green-700 hover:underline" to='/signup'>{" "}SignUp</NavLink>
               </p>
+              <NavLink className="mt-2 text-base my-2 text-green-700 hover:underline text-right ml-auto" to='/forgot-password'>Forgot password</NavLink>
               <div>
                 <button
                   className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"

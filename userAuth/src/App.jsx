@@ -1,6 +1,8 @@
 import './App.css'
 import Home from './Home';
+import ForgotPassword from './authScreen/Forgotpassword';
 import Login from './authScreen/Login'
+import ResetPassword from './authScreen/ResetPassword';
 import Signup from './authScreen/Signup'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
@@ -12,6 +14,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path='/home' element={<Home />} />
         </Routes>
       </BrowserRouter>
